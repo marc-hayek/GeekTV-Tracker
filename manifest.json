@@ -1,0 +1,31 @@
+{  
+   "content_scripts": [ {
+      "all_frames": false,
+      "js": [
+         "js/content.js" 
+      ],
+      "matches": [ "http://geektv.ma/*","http://geektv.tv/*"],
+      "include_globs": ["*/episode/*"],
+      "run_at": "document_idle"
+   } ],
+   "background": {
+    "scripts": ["js/background.js"],
+    "persistent": false
+   },
+   "browser_action": {
+        "default_icon": "img/cracked_img.png",
+        "default_popup": "popup.html"
+   },
+   "description": "Keeps track of the series that you are following on geektv",
+   "icons": {
+      "128": "img/logo_128.png",
+      "16": "img/logo_16.png",
+      "48": "img/logo_48.png"
+   },
+   "incognito": "spanning",
+   "manifest_version": 2,
+   "name": "Geek TV Tracker",
+   "version":"0.1",
+   "permissions": [ "*://*/*", "tabs", "notifications", "storage"],
+   "web_accessible_resources": ["img/crack.png"]
+}

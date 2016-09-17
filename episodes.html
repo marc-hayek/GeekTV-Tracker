@@ -1,0 +1,10 @@
+<div class="back-button"><a href ui-sref='home'>Back to Seasons</a></div>
+<md-button class="md-primary md-raised" ng-click="showConfirm($event)" >
+      Confirm Dialog
+</md-button>
+<h3>{{series}}</h3>
+<div ng-repeat="episode in episodesList" class="episode-item">
+	<div class="episode"><span class="season"><span class="season-title">Season</span> {{episode.season}}</span> <span class="episode-number"><span class="episode-title">Episode</span> {{episode.episode}}<span> </div>
+	<div class="episode-name">Episode Name : {{episode.episode_name}}</div>
+	<div class="episode-date">Watched on : {{episode.date | date:'medium'}} </div>
+</div>

@@ -1,0 +1,20 @@
+<h2 class="md-title inset">My Series</h2>
+<div>
+	 <ul class="series-list">
+            <li class="list-item" ng-repeat="serie in seriesList">
+              <a href ui-sref='episodes({series: "{{serie}}"})'>
+                <div class="series-name">{{serie}}</div>
+              </a>
+            </li>
+    </ul>
+     <md-list>
+	    <md-item ng-repeat="serie in seriesList">
+	      <a href ui-sref='episodes({series: "{{serie}}"})'>
+	        <md-item-content md-ink-ripple layout="row" layout-align="start center">
+	          <div class="inset">{{serie}}
+	          </div>
+	        </md-item-content>
+	      </a>
+	    </md-item>
+  </md-list>
+</div>
