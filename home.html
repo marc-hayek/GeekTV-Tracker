@@ -1,20 +1,21 @@
-<h2 class="md-title inset">My Series</h2>
-<div>
-	 <ul class="series-list">
-            <li class="list-item" ng-repeat="serie in seriesList">
-              <a href ui-sref='episodes({series: "{{serie}}"})'>
-                <div class="series-name">{{serie}}</div>
-              </a>
-            </li>
-    </ul>
-     <md-list>
-	    <md-item ng-repeat="serie in seriesList">
-	      <a href ui-sref='episodes({series: "{{serie}}"})'>
-	        <md-item-content md-ink-ripple layout="row" layout-align="start center">
-	          <div class="inset">{{serie}}
-	          </div>
-	        </md-item-content>
-	      </a>
-	    </md-item>
+<div class="md-title md-primary md-hue-3 inset popup-secondary-title">My Series</div>
+<div class="series-list-container">
+	<md-content>
+     <md-list flex="">
+	    <md-list-item class="md-1-line" ng-repeat="serie in seriesList" ng-href="null" ui-sref='episodes({series: "{{serie}}"})'>
+	    
+	       <!--  <md-item-content md-ink-ripple layout="row" layout-align="start center">
+	          <div class="inset">{{serie}}</div>
+	        </md-item-content> -->
+        
+
+	        <img ng-src="http://geektv.ma/images/cover/cover_5d58.jpg" class="md-avatar" alt="/" />
+          <div class="md-list-item-text" layout="column">
+            <h3>{{ serie}}</h3>
+          </div>
+
+	      <md-divider ng-if="!$last"></md-divider>
+	    </md-list-item>
   </md-list>
+</md-content>
 </div>

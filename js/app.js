@@ -11,4 +11,7 @@ var app = angular.module('app', ['app.home','app.episodes','ngMaterial','ngMdIco
   //   .accentPalette('amber')
   //   .warnPalette('red')
   //   .backgroundPalette('grey');
+  $mdThemingProvider.theme('default')
+    .primaryPalette('blue')
+    .accentPalette('blue');
 }]);

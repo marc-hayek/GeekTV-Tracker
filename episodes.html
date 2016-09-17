@@ -1,10 +1,30 @@
-<div class="back-button"><a href ui-sref='home'>Back to Seasons</a></div>
-<md-button class="md-primary md-raised" ng-click="showConfirm($event)" >
-      Confirm Dialog
-</md-button>
-<h3>{{series}}</h3>
-<div ng-repeat="episode in episodesList" class="episode-item">
-	<div class="episode"><span class="season"><span class="season-title">Season</span> {{episode.season}}</span> <span class="episode-number"><span class="episode-title">Episode</span> {{episode.episode}}<span> </div>
-	<div class="episode-name">Episode Name : {{episode.episode_name}}</div>
-	<div class="episode-date">Watched on : {{episode.date | date:'medium'}} </div>
+<div class="md-title md-primary md-hue-3 inset popup-secondary-title flexed">
+	<div class="flex-title"> 
+		<img ng-src="http://geektv.ma/images/cover/cover_5d58.jpg" class="series-avatar" alt="/" />{{series}}
+	</div>
+ <span flex=""></span>
+ <a class="md-icon-button md-button md-default-theme" href ui-sref='home'>
+ 	<ng-md-icon icon="arrow_back"></ng-md-icon> 
+ 	<md-tooltip >Back to seasons</md-tooltip></a>
+ <button class="md-icon-button md-button md-default-theme">
+ 	<ng-md-icon icon="delete_forever" ng-click="showConfirm($event)"></ng-md-icon>
+ 	<md-tooltip>Delete Series</md-tooltip>
+ </button>
 </div>
+<div class="series-list-container">
+<md-content>
+     <md-list flex="">
+	    <md-list-item ng-repeat="episode in episodesList" class="noright md-3-line md-no-proxy md-with-secondary episodes-list">
+		    <div class="md-list-item-text">
+		    	<h3 class="season-episode-title"><span>Season</span> {{episode.season}}</span> <span class="episode-number"><span>Episode</span> {{episode.episode}}<span> </h3>
+	            <h4>Episode Name : {{episode.episodeName}}</h4>
+	            <p>Watched on : {{episode.date | date:'medium'}}</p>
+			</div>
+		    <ng-md-icon ng-click="doSecondaryAction($event)" class="md-secondary md-hue-3" icon="skip_next"></ng-md-icon> 
+		    <ng-md-icon ng-click="doSecondaryAction($event)" class="md-secondary md-hue-3" icon="play_arrow"></ng-md-icon> 
+		    <ng-md-icon ng-click="doSecondaryAction($event)" class="md-secondary md-hue-3" icon="delete"></ng-md-icon> 
+		</md-list-item>
+  </md-list>
+</md-content>
+</div>
+

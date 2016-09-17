@@ -3,7 +3,7 @@
     <head>
     	<link rel="stylesheet" type="text/css" href="bower_components/angular/angular-csp.css">
     	<link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.min.css">
-    	<link rel="stylesheet" type="text/css" href="bower_components/angular-material-icons/angular-material-icons.min.css">
+    	<link rel="stylesheet" type="text/css" href="bower_components/angular-material-icons/angular-material-icons.css">
         <link rel="stylesheet" type="text/css" href="main.css">
         <script src="bower_components/lodash/dist/lodash.min.js"></script>
         <script src="bower_components/angular/angular.min.js"></script>
@@ -18,11 +18,9 @@
     </head>
     <body>
     	<div class="container">
-    		<div>
-        		<h1>Geek TV Tracker</h1>
-	        </div>
+	        <md-toolbar><div class="popup-title">Geek TV Tracker</div></md-toolbar>
 	        <div class="content_container" ui-view="main"></div>
 	        <div class="content_container" ui-view="episodes"></div>
-    	</div>	
+    	</div>		
     </body>
 </html>
