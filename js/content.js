@@ -26,21 +26,22 @@ if ((document.documentElement.textContent || document.documentElement.innerText)
 				let text=nextEpisodeNode.innerText;
 				if(text.indexOf('NEXT') >-1){
 					nextEpisode=nextEpisodeNode.getAttribute('href');
-				}
+				}	
 			}
 
 			var episode_object={	
+				id:'s'+season+'e'+episode,
 				season:season,
 				episode:episode,
 				episodeName:episode_name,
 				date:Date.now(),
 				episodeURL:window.location.href,
-				nextEpisode:nextEpisode
+				nextEpisode:nextEpisode,
 			}
 
 			chrome.storage.sync.get(series_name, function (data) { 
 				if (data.hasOwnProperty(series_name)) {
-					var episodes_array=data[series_name];
+					var episodes_array=data[series_name].episodes;
 					var exists=false;
 					for(var i=0;i < episodes_array.length;i++){
 						if(episodes_array[i].episode==episode_object.episode && episodes_array[i].season==episode_object.season ){
@@ -50,14 +51,20 @@ if ((document.documentElement.textContent || document.documentElement.innerText)
 					if(!exists){
 						var obj={};
 						episodes_array.push(episode_object);
-						obj[series_name]=episodes_array;
+						obj[series_name]={
+							seriesImage:seriesImage,
+							episodes:episodes_array
+						};
 						chrome.storage.sync.set(obj, function(result) {
 						});
 					}
 				}
 				else{
 					var obj={};
-					obj[series_name]=[episode_object];
+					obj[series_name]={
+						seriesImage:seriesImage,
+						episodes:[episode_object]
+					};
 					chrome.storage.sync.set(obj, function(result) {
 					});
 				}
@@ -67,3 +74,4 @@ if ((document.documentElement.textContent || document.documentElement.innerText)
 		}
 	}
 }
+

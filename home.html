@@ -1,21 +1,30 @@
-<div class="md-title md-primary md-hue-3 inset popup-secondary-title">My Series</div>
-<div class="series-list-container">
+<div ng-if="seriesList.length>0" class="md-title md-primary md-hue-3 inset popup-secondary-title">My Series</div>
+<div ng-if="seriesList.length>0" class="series-list-container">
 	<md-content>
      <md-list flex="">
-	    <md-list-item class="md-1-line" ng-repeat="serie in seriesList" ng-href="null" ui-sref='episodes({series: "{{serie}}"})'>
+	    <md-list-item class="md-1-line" ng-repeat="serie in seriesList" ng-href="null" ui-sref='episodes({series: "{{serie.series}}", img:"{{serie.img}}"})'>
 	    
 	       <!--  <md-item-content md-ink-ripple layout="row" layout-align="start center">
 	          <div class="inset">{{serie}}</div>
 	        </md-item-content> -->
         
 
-	        <img ng-src="http://geektv.ma/images/cover/cover_5d58.jpg" class="md-avatar" alt="/" />
+	        <img ng-src="{{serie.img}}" class="md-avatar" alt="/" />
           <div class="md-list-item-text" layout="column">
-            <h3>{{ serie}}</h3>
+            <h3>{{ serie.series}}</h3>
           </div>
 
 	      <md-divider ng-if="!$last"></md-divider>
 	    </md-list-item>
   </md-list>
 </md-content>
+</div>
+
+<div ng-if="seriesList.length==0">
+	<md-content>
+		<div class="no-results">
+			<h3>You don't have any series in your list!</h3>
+			Visit <a href="#" ng-click="redirectGeekTV()">Geek TV</a> and click on any episode, and the show will automatically be added to your list.
+		</div>
+	</md-content>
 </div>
