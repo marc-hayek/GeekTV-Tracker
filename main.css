@@ -64,3 +64,29 @@ html,body{
 	background-color: white;
 	padding: 20px;
 }
+
+md-toolbar.md-title .series-title{
+	font-family: 'Raleway',sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+}
+
+md-toolbar.md-title md-input-container input.search-input{
+	border-color: white;
+    color: white;
+    width: 200px;
+}
+
+md-toolbar.md-title md-input-container ng-md-icon{
+	fill:white;
+}
+
+md-toolbar.md-title md-input-container input.search-input::-webkit-input-placeholder {
+    color: white;
+}
+
+md-select.episode-sort-select{
+	margin: 0;
+	margin-right: 10px;
+}

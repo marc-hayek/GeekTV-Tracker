@@ -5,28 +5,36 @@
  <span flex=""></span>
  <a class="md-icon-button md-button md-default-theme" href ui-sref='home'>
  	<ng-md-icon icon="arrow_back"></ng-md-icon> 
- 	<md-tooltip >Back to seasons</md-tooltip></a>
+ 	<md-tooltip md-delay="1300">Back to seasons</md-tooltip></a>
  <button class="md-icon-button md-button md-default-theme">
  	<ng-md-icon icon="delete_forever" ng-click="showDeleteAllConfirm($event)"></ng-md-icon>
- 	<md-tooltip>Delete series</md-tooltip>
+ 	<md-tooltip md-delay="1300">Delete series</md-tooltip>
  </button>
 </div>
+<div class="layout-row">
+	<span flex></span>
+	<md-select ng-model="order" placeholder="Sort" class="md-no-underline episode-sort-select">
+          <md-option  ng-value="['season','-episode']" ng-selected="true" >Episode Number</md-option>
+          <md-option  ng-value="'-date'">Last Watched</md-option>
+        </md-select>
+</div>
+<md-divider ng-if="!$last"></md-divider>
 <div class="series-list-container">
 <md-content ng-disabled="loading">
      <md-list flex="">
-	    <md-list-item ng-disabled="loading" ng-repeat="episode in episodesList | orderBy: '[]': true" class="noright md-3-line md-no-proxy md-with-secondary episodes-list">
+	    <md-list-item ng-disabled="loading" ng-repeat="episode in episodesList | orderBy:order" class="noright md-3-line md-no-proxy md-with-secondary episodes-list">
 		    <div class="md-list-item-text">
 		    	<h3 class="season-episode-title"><span>Season</span> {{episode.season}}</span> <span class="episode-number"><span>Episode</span> {{episode.episode}}<span> </h3>
 	            <h4>Episode Name : {{episode.episodeName}}</h4>
 	            <p>Watched on : {{episode.date | date:'medium'}}</p>
 			</div>
 		    	<ng-md-icon ng-disabled="loading" ng-click="redirect(episode.nextEpisode)"  ng-if="episode.nextEpisode && $first" class="md-secondary md-hue-3" icon="skip_next">
-		    	<md-tooltip>Watch next episode</md-tooltip>
+		    	<md-tooltip md-delay="1300">Watch next episode</md-tooltip>
 		    	</ng-md-icon>
 		    	<ng-md-icon ng-disabled="loading"  ng-click="redirect(episode.episodeURL)"  class="md-secondary md-hue-3" icon="play_arrow">
-		    	<md-tooltip>Watch episode</md-tooltip>
+		    	<md-tooltip md-delay="1300">Watch episode</md-tooltip>
 		    	</ng-md-icon>
-		    	<ng-md-icon ng-disabled="loading"  ng-click="showDeleteEpisodeConfirm($event,episode)" class="md-secondary md-hue-3" icon="delete"><md-tooltip>Delete episode</md-tooltip></ng-md-icon>
+		    	<ng-md-icon ng-disabled="loading"  ng-click="showDeleteEpisodeConfirm($event,episode)" class="md-secondary md-hue-3" icon="delete"><md-tooltip md-delay="1300">Delete episode</md-tooltip></ng-md-icon>
 		    	<md-divider ng-if="!$last"></md-divider>
 		</md-list-item>		
   </md-list>

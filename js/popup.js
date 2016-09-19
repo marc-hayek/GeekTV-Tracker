@@ -41,7 +41,10 @@ app.service('seriesService', function($q,_) {
 			if(episodes.length > 1){
 				episodes.splice(episodeIndex, 1);
 				var obj={};
-				obj[series]=episodes;
+				obj[series]={
+					seriesImage:data[series].seriesImage,
+					episodes:episodes
+				};
 				chrome.storage.sync.set(obj, (result) =>{
 					if (!chrome.runtime.error) {
 						deferred.resolve('success');
@@ -91,6 +94,10 @@ angular.module('app.home',['ui.router'])
 			chrome.tabs.create({url: "http://geektv.ma"});
     		window.close();
 		}
+		$scope.listFilter={
+			season:""
+		}
+
 	}]);
 
 
@@ -118,7 +125,7 @@ angular.module('app.episodes',['ui.router'])
 		$scope.series=$stateParams.series;
 		$scope.seriesImage=$stateParams.img;
 		$scope.loading=false;
-
+		
 		$scope.redirect=function(url){
 			chrome.tabs.update({url: url});
     		window.close();
