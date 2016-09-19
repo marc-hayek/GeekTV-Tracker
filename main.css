@@ -54,7 +54,7 @@ html,body{
 
 .content_container .episodes-list-container{
 	overflow-y: auto;
-    max-height: 347px;
+    max-height: 305px;
 }
 
 .no-results{
