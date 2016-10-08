@@ -31,8 +31,8 @@ if ((document.documentElement.textContent || document.documentElement.innerText)
 
 			var episode_object={	
 				id:'s'+season+'e'+episode,
-				season:season,
-				episode:episode,
+				season:parseInt(season),
+				episode:parseInt(episode),
 				episodeName:episode_name,
 				date:Date.now(),
 				episodeURL:window.location.href,

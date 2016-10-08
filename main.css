@@ -4,7 +4,7 @@ html,body{
 }
 .container{
 	position: relative;
-	min-width:440px;
+	width:440px;
 }
 .popup-title{ color: #ffffff; font-family: 'Raleway',sans-serif; font-size: 32px; font-weight: 800; line-height: 72px; text-align: center; text-transform: uppercase; }
 .popup-secondary-title{
@@ -47,7 +47,7 @@ html,body{
 }
 
 .content_container .series-list-container{
-	max-height: 362px;
+	max-height: 350px;
     overflow-y: auto;
 }
 

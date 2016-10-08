@@ -14,12 +14,14 @@
 <div class="layout-row">
 	<span flex></span>
 	<md-select ng-model="order" placeholder="Sort" class="md-no-underline episode-sort-select">
-          <md-option  ng-value="['season','-episode']" ng-selected="true" >Episode Number</md-option>
-          <md-option  ng-value="'-date'">Last Watched</md-option>
+          <md-option  ng-value="['-season','-episode']" ng-selected="true" >Episode Number (newest)</md-option>
+          <md-option  ng-value="['season','episode']" >Episode Number (oldest)</md-option>
+          <md-option  ng-value="'-date'">Last Watched (newest)</md-option>
+          <md-option  ng-value="'date'">Last Watched (oldest)</md-option>
         </md-select>
 </div>
 <md-divider ng-if="!$last"></md-divider>
-<div class="series-list-container">
+<div class="episodes-list-container">
 <md-content ng-disabled="loading">
      <md-list flex="">
 	    <md-list-item ng-disabled="loading" ng-repeat="episode in episodesList | orderBy:order" class="noright md-3-line md-no-proxy md-with-secondary episodes-list">

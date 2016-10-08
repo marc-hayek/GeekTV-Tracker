@@ -15,12 +15,6 @@
 	<md-content>
      <md-list flex="">
 	    <md-list-item class="md-1-line" ng-repeat="serie in seriesList | filter:listFilter.season as filteredSeriesList" ng-href="null" ui-sref='episodes({series: "{{serie.series}}", img:"{{serie.img}}"})'>
-	    
-	       <!--  <md-item-content md-ink-ripple layout="row" layout-align="start center">
-	          <div class="inset">{{serie}}</div>
-	        </md-item-content> -->
-        
-
 	        <img ng-src="{{serie.img}}" class="md-avatar" alt="/" />
           <div class="md-list-item-text" layout="column">
             <h3>{{ serie.series}}</h3>
